@@ -31,7 +31,7 @@ def main():
     data = data.loc[data.my_team == scelta_team]
     data = data.loc[data.other_team == scelta_other]
 
-    data.drop(columns=["my_team", "other_team", "date"])
+    data = data.drop(columns=["my_team", "other_team", "date"])
     st.write(data)
 
 
