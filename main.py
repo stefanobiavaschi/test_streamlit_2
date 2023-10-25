@@ -6,9 +6,9 @@ from lib.func_data import import_data
 
 list_path =[r"data/stats-chiav_u15_23_24-vs-annone-22-10-2023.csv",
              r"data/stats-chiav_dr3_23_24-vs-brembate-22-10-2023.csv",
-             r"data/stats-chiav_u17_22_23-vs-mandello-30-04-2023.csv",
-             r"data/stats-chiav_u17_22_23-vs-pezza_u17-19-02-2023.csv",
-             r"data/stats-chiav_u17_22_23-vs-rovagnate-29-01-2023.csv",
+            #  r"data/stats-chiav_u17_22_23-vs-mandello-30-04-2023.csv",
+            #  r"data/stats-chiav_u17_22_23-vs-pezza_u17-19-02-2023.csv",
+            #  r"data/stats-chiav_u17_22_23-vs-rovagnate-29-01-2023.csv",
             ]
 
 
