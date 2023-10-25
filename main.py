@@ -43,7 +43,6 @@ def main():
     data = data.loc[data.other_team == scelta_other]
 
     data = data.drop(columns=["season","my_team", "other_team", "date"])
-    data = data.set_index('Nr')
     st.write(data)
 
 
