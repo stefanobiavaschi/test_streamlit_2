@@ -5,7 +5,7 @@ import os, urllib
 from lib.func_data import import_data
 
 list_path =[
-    r"data/stats-chiav_DR3_23_24-vs-Brembate-22-10-2023.csv",
+    r"data/stats-chiav_dr3_23_24-vs-brembate-22-10-2023.csv",
     # r"data/stats-chiav_U14_22_23-vs-Pontida-05-03-2023.csv",
     # r"data/stats-chiav_U15_23_24-vs-Annone-22-10-2023.csv",
     # r"data/stats-chiav_U17_22_23-vs-Mandello-30-04-2023.csv",
