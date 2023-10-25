@@ -4,14 +4,14 @@ import os, urllib
 
 from lib.func_data import import_data
 
-list_path =[r"data/stats-chiav_u15_23_24-vs-annone-22-10-2023.csv",
-             r"data/stats-chiav_dr3_23_24-vs-brembate-22-10-2023.csv",
-            #  r"data/stats-chiav_u17_22_23-vs-mandello-30-04-2023.csv",
-            #  r"data/stats-chiav_u17_22_23-vs-pezza_u17-19-02-2023.csv",
-            #  r"data/stats-chiav_u17_22_23-vs-rovagnate-29-01-2023.csv",
-            #  r"data/stats-chiav_u17_22_23-vs-rovagnate-29-01-2023.csv",
-            #  r"data/stats-chiav_u17_22_23-vs-rovagnate-29-01-2023.csv",
-            ]
+list_path =[r"data/stats-chiav_DR3_23_24-vs-Brembate-22-10-2023.csv",
+r"data/stats-chiav_U14_22_23-vs-Pontida-05-03-2023.csv",
+r"data/stats-chiav_U15_23_24-vs-Annone-22-10-2023.csv",
+r"data/stats-chiav_U17_22_23-vs-Mandello-30-04-2023.csv",
+r"data/stats-chiav_U17_22_23-vs-Morbegno_u17-19-02-2023.csv",
+r"data/stats-chiav_U17_22_23-vs-Rovagnate-29-01-2023.csv",
+r"data/stats-chiav_1D_22_23-vs-Sondrio-05-03-2023.csv"
+]
 
 
 def main():
