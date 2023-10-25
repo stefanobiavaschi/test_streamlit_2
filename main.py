@@ -23,16 +23,20 @@ def main():
 
     data = import_data(list_path)
 
-    list_team = list(set(list(data.my_team.values)))
+    list_season = list(set(list(data.season.values)))
+    scelta_season = st.radio("Scegli un'opzione:", list_season)
+
+
+    list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
     scelta_team = st.radio("Scegli un'opzione:", list_team)
 
-    list_other = list(set(list(data.loc[data.my_team == scelta_team].other_team.values)))
+    list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
     scelta_other = st.radio("Scegli un'opzione:", list_other)
 
     data = data.loc[data.my_team == scelta_team]
     data = data.loc[data.other_team == scelta_other]
 
-    data = data.drop(columns=["my_team", "other_team", "date"])
+    data = data.drop(columns=["season","my_team", "other_team", "date"])
     st.write(data)
 
 
