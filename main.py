@@ -25,10 +25,11 @@ def main():
 
     list_team = list(set(list(data.my_team.values)))
     scelta_team = st.radio("Scegli un'opzione:", list_team)
-    data = data.loc[data.my_team == scelta_team]
 
-    list_other = list(set(list(data.other_team.values)))
+    list_other = list(set(list(data.loc[data.my_team == scelta_team].other_team.values)))
     scelta_other = st.radio("Scegli un'opzione:", list_other)
+
+    data = data.loc[data.my_team == scelta_team]
     data = data.loc[data.other_team == scelta_other]
 
     data = data.drop(columns=["my_team", "other_team", "date"])
