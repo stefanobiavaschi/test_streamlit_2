@@ -58,9 +58,9 @@ def main():
             ... Lavori in corso ... 
             """
         )
-
-        mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
-        mrg_2 = data.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
+        data_mean = data_mean.loc[ data_mean.my_team == scelta_team ]
+        mrg_1 = data_mean.groupby(["Nr", "Giocatore"]).mean().reset_index()
+        mrg_2 = data_mean.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
         data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
         data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
