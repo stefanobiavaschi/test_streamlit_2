@@ -21,10 +21,13 @@ def main():
     st.markdown("# Basket Chiavenna - Statistiche")
     st.markdown(
         """
-        Scemo chi LeGge =)
+        ... Lavori in corso .... 
         """
     )
     st.markdown("<br>", unsafe_allow_html=True)
+
+    st.image('file/logo.pdf', use_column_width=False, width=200, caption='Immagine di esempio')
+    st.markdown("<div style='margin: 10px; float: right;'><img src='percorso/all/immagine.png' width='200'></div>", unsafe_allow_html=True)
 
 
     data = import_data(list_path)
