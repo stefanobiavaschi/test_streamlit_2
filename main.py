@@ -30,7 +30,7 @@ def main():
     data = import_data(list_path)
 
     list_season = list(set(list(data.season.values)))
-    scelta_season = st.radio("Stagione:", list_season)
+    scelta_season = st.radio("Stagione:", list_season, horizontal=True)
 
 
     list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
@@ -39,7 +39,7 @@ def main():
     scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ], horizontal=True)
 
     list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
-    scelta_other = st.radio("Nemico:", list_other)
+    scelta_other = st.radio("Nemico:", list_other, horizontal=True)
 
     list_date = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & \
                                        (data.other_team == scelta_other)].date.values)))
