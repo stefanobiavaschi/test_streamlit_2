@@ -32,6 +32,6 @@ def import_data(list_path):
     return data
 
 def sec_to_time(sec):
-    min = sec // 60
-    sec_new = sec - (min*60)
+    min = int( sec // 60 )
+    sec_new = int( sec - (min*60) )
     return f"{min}:{sec_new}"
