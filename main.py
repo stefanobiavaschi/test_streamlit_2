@@ -57,11 +57,6 @@ def main():
         st.write(data_single)
 
     if scelta_media == "Dati medi":
-        st.markdown(
-            """
-            ... Lavori in corso ... 
-            """
-        )
         mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
         mrg_2 = data.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
