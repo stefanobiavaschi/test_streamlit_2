@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os, urllib
 
-from lib.func_data import import_data, sec_to_time
+from lib.func_data import import_data, sec_to_time, displayPDF
 
 list_path =[
     r"data/stats-chiav_dr3_23_24-vs-brembate-22-10-2023.csv",
@@ -26,8 +26,7 @@ def main():
     )
     st.markdown("<br>", unsafe_allow_html=True)
 
-    st.image('file/logo.pdf', use_column_width=False, width=200, caption='Immagine di esempio')
-    st.markdown("<div style='margin: 10px; float: right;'><img src='percorso/all/immagine.png' width='200'></div>", unsafe_allow_html=True)
+    displayPDF('file/logo.pdf')
 
 
     data = import_data(list_path)
