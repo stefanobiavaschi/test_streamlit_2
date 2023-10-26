@@ -26,7 +26,7 @@ def main():
     )
     st.markdown("<br>", unsafe_allow_html=True)
 
-    displayPDF('file/logo.pdf')
+    # displayPDF('file/logo.pdf')
 
 
     data = import_data(list_path)
