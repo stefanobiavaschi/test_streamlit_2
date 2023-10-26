@@ -21,7 +21,7 @@ def main():
     st.markdown("# Basket Chiavenna - Statistiche")
     st.markdown(
         """
-        :=)
+        Scemo chi LeGge =)
         """
     )
     st.markdown("<br>", unsafe_allow_html=True)
@@ -37,12 +37,15 @@ def main():
     scelta_team = st.radio("Squadra BK Chiavenna:", list_team)
 
     list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
-    scelta_other = st.radio("Nemico:", list_other)
+    scelta_other = st.radio("Nemico:", ["Aggregato"] + list_other)
 
-    data = data.loc[data.my_team == scelta_team]
-    data = data.loc[data.other_team == scelta_other]
+    list_date = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & \
+                                       (data.other_team == scelta_other)].date.values)))
+    scelta_date = st.radio("Data:", list_date)
 
-    data = data.drop(columns=["season","my_team", "other_team", "date"])
+    data = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
+
+    data = data.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec"])
     st.write(data)
 
 

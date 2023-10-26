@@ -20,8 +20,11 @@ def import_data(list_path):
         data_temp["my_team"] = my_team
         data_temp["other_team"] = other_team
         data_temp["date"] = date
-        data["min_"] = data.MIN.apply(lambda x: x.split(":")[0])
-        data["sec_"] = data.MIN.apply(lambda x: x.split(":")[1] if len(x.split(":")) > 1 else "" )
+
+        data_temp["min_"] = data_temp.MIN.apply(lambda x: x.split(":")[0] if len(x.split(":")[0])> 0 else 0).astype(int)
+        data_temp["sec_"] = data_temp.MIN.apply(lambda x: x.split(":")[1] if len(x.split(":")) > 1 else 0 ).astype(int)
+        data_temp["sec"] = data_temp.sec_ + 60*(data_temp.min_)
+        data_temp = data_temp.drop(columns=["min_", "sec_"])
 
         L_append = L_append + [data_temp]
 
