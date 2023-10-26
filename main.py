@@ -30,19 +30,11 @@ def main():
     data = import_data(list_path)
 
     list_season = list(set(list(data.season.values)))
-
-    col1, col2 = st.beta_columns(2)
-    scelta_season = st.beta_container()
-    with scelta_season:
-        st.radio("Stagione:", list_season)
+    scelta_season = st.radio("Stagione:", list_season)
 
 
-    with col1:
-        scelta_season = st.radio("Stagione:", list_season)
-
-    with col2:
-        list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
-        scelta_team = st.radio("Squadra BK Chiavenna:", list_team)
+    list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
+    scelta_team = st.radio("Squadra BK Chiavenna:", list_team)
 
     scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ])
 
