@@ -67,8 +67,7 @@ def main():
         data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
 
         data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', '3PM', '3PA', '2PM', '2PA',
-            'FTM', 'FTA', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR',
-            'PF', 'PFD', 'PIR', 'EFF', 'min_', 'sec_', 'sec' ]]
+            'FTM', 'FTA', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
         st.write(data_mean)
     
 
