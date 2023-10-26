@@ -38,18 +38,29 @@ def main():
 
     scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ], horizontal=True)
 
-    list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
-    scelta_other = st.radio("Nemico:", list_other, horizontal=True)
 
-    list_date = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & \
-                                       (data.other_team == scelta_other)].date.values)))
-    list_date = [pd.to_datetime(i).strftime('%d-%m-%Y') for i in list_date ]
-    scelta_date = st.radio("Data:", list_date, horizontal=True)
+    if scelta_media == "Partita singola":
+        list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
+        scelta_other = st.radio("Nemico:", list_other, horizontal=True)
 
-    data = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
+        list_date = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & \
+                                        (data.other_team == scelta_other)].date.values)))
+        list_date = [pd.to_datetime(i).strftime('%d-%m-%Y') for i in list_date ]
+        scelta_date = st.radio("Data:", list_date, horizontal=True)
 
-    data = data.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
-    st.write(data)
+        data = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
+
+        data = data.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
+        st.write(data)
+
+    if scelta_media == "Dati medi":
+        st.markdown(
+            """
+            ... Lavori in corso ... 
+            """
+        )
+
+    
 
 
 if __name__ == "__main__":
