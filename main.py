@@ -34,9 +34,9 @@ def main():
 
 
     list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
-    scelta_team = st.radio("Squadra BK Chiavenna:", list_team)
+    scelta_team = st.radio("Squadra BK Chiavenna:", list_team, horizontal=True)
 
-    scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ])
+    scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ], horizontal=True)
 
     list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
     scelta_other = st.radio("Nemico:", list_other)
@@ -44,7 +44,7 @@ def main():
     list_date = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & \
                                        (data.other_team == scelta_other)].date.values)))
     list_date = [pd.to_datetime(i).strftime('%d-%m-%Y') for i in list_date ]
-    scelta_date = st.radio("Data:", list_date)
+    scelta_date = st.radio("Data:", list_date, horizontal=True)
 
     data = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
 
