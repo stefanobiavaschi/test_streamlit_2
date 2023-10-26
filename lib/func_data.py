@@ -1,5 +1,6 @@
 import pandas as pd
 import base64
+import streamlit as st
 
 def import_data(list_path):
     L_append = []
