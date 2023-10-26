@@ -47,10 +47,10 @@ def main():
                                         (data.other_team == scelta_other)].date.values)))
         scelta_date = st.radio("Data:", list_date, horizontal=True)
 
-        data = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
+        data_single = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
 
-        data = data.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
-        st.write(data)
+        data_single = data_single.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
+        st.write(data_single)
 
     if scelta_media == "Dati medi":
         st.markdown(
