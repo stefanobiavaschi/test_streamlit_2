@@ -36,6 +36,8 @@ def main():
     list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
     scelta_team = st.radio("Squadra BK Chiavenna:", list_team, horizontal=True)
 
+    data = data.loc[ data.my_team == scelta_team ]
+
     scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ], horizontal=True)
 
 
@@ -47,7 +49,7 @@ def main():
                                         (data.other_team == scelta_other)].date.values)))
         scelta_date = st.radio("Data:", list_date, horizontal=True)
 
-        data_single = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
+        data_single = data.loc[(data.other_team == scelta_other) & (data.date == scelta_date)]
 
         data_single = data_single.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
         st.write(data_single)
@@ -58,9 +60,8 @@ def main():
             ... Lavori in corso ... 
             """
         )
-        data_mean = data_mean.loc[ data_mean.my_team == scelta_team ]
-        mrg_1 = data_mean.groupby(["Nr", "Giocatore"]).mean().reset_index()
-        mrg_2 = data_mean.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
+        mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
+        mrg_2 = data.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
         data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
         data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
