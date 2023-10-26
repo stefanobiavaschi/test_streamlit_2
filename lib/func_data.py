@@ -1,5 +1,5 @@
 import pandas as pd
-
+import base64
 
 def import_data(list_path):
     L_append = []
