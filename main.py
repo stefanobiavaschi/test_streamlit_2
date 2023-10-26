@@ -36,8 +36,10 @@ def main():
     list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
     scelta_team = st.radio("Squadra BK Chiavenna:", list_team)
 
+    scelta_media = st.radio("Nemico:", [- "Partita", "Media" ])
+
     list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
-    scelta_other = st.radio("Nemico:", ["Aggregato"] + list_other)
+    scelta_other = st.radio("Nemico:", list_other)
 
     list_date = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & \
                                        (data.other_team == scelta_other)].date.values)))
@@ -46,7 +48,7 @@ def main():
 
     data = data.loc[(data.my_team == scelta_team) & (data.other_team == scelta_other) & (data.date == scelta_date)]
 
-    data = data.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec"])
+    data = data.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
     st.write(data)
 
 
