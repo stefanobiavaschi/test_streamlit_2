@@ -36,7 +36,7 @@ def main():
     list_team = list(set(list(data.loc[data.season == scelta_season].my_team.values)))
     scelta_team = st.radio("Squadra BK Chiavenna:", list_team)
 
-    scelta_media = st.radio("Nemico:", [- "Partita", "Media" ])
+    scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi" ])
 
     list_other = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].other_team.values)))
     scelta_other = st.radio("Nemico:", list_other)
