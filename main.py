@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os, urllib
 
-from lib.func_data import import_data
+from lib.func_data import import_data, sec_to_time
 
 list_path =[
     r"data/stats-chiav_dr3_23_24-vs-brembate-22-10-2023.csv",
@@ -59,6 +59,16 @@ def main():
             """
         )
 
+        mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
+        mrg_2 = data.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
+
+        data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
+        data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
+
+        data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', '3PM', '3PA', '2PM', '2PA',
+            'FTM', 'FTA', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR',
+            'PF', 'PFD', 'PIR', 'EFF', 'min_', 'sec_', 'sec' ]]
+        st.write(data_mean)
     
 
 

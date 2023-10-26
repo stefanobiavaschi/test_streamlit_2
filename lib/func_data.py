@@ -30,3 +30,8 @@ def import_data(list_path):
 
     data = pd.concat(L_append)
     return data
+
+def sec_to_time(sec):
+    min = sec // 60
+    sec_new = sec - (min*60)
+    return f"{min}:{sec_new}"
