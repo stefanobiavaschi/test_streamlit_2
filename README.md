@@ -8,6 +8,7 @@ Punti aperti:
 - Disporre i filtri nello spazio
 - Calcolare percentuale reale
 - Estrarre il migliore per alcune voci e visualizzarlo in modo dinamico
+- Calcolare statistiche al minuto
 - GRAFICI:
 1) Andamento di alcune voci nel tempo
 2) Scatterplot Efficienza/minuti e Punti/minuti
