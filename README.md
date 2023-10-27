@@ -1,11 +1,24 @@
-# streamlit_test
+# Prova app per la visualizzaizone delle statistiche
+
+Punti aperti:
+- Inserire logo
+- Disporre i filtri nello spazio
+- Calcolare percentuale reale
+- Estrarre il migliore per alcune voci e visualizzarlo in modo dinamico
+- GRAFICI:
+1) Andamento di alcune voci nel tempo
+2) Scatterplot Efficienza/minuti e Punti/minuti
+3) Grafico bolle: minuti, punti, % al tiro
+4) Treemap o grafico a torta distribuzione punti
 
 
+
+
+APPUNTI:
 Per attivare .venv da terminale:
-cd C:\Users\BiavaschiStefano\OneDrive - PORINI Srl\Progetti\streamlit_test
+cd [path della cartella streamlit_test]
 
 "streamlit-test-stats/Scripts/activate.bat"
-
 
 Per eseguire app:
 streamlit run main.py
