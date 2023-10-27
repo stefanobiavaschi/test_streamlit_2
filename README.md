@@ -1,4 +1,7 @@
 # Prova app per la visualizzaizone delle statistiche
+Link all'app:
+https://testapp2-ddzjvhzb3ba8fu7aqjnwrq.streamlit.app/
+
 
 Punti aperti:
 - Inserire logo
@@ -15,6 +18,7 @@ Punti aperti:
 
 
 APPUNTI:
+
 Per attivare .venv da terminale:
 cd [path della cartella streamlit_test]
 
