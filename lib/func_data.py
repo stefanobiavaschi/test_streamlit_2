@@ -3,7 +3,7 @@ import base64
 import streamlit as st
 
 def import_data(list_path):
-    df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data", "Luogo","Chiav", "Avversari", "W/L"])
+    df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data", "Luogo", "Chiav", "Avversari", "W/L"])
     L_append = []
     for path in list_path:
         data_temp = pd.read_csv(path).rename(columns={"Nº":"Nr"})
