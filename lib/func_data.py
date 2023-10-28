@@ -3,7 +3,7 @@ import base64
 import streamlit as st
 
 def import_data(list_path):
-    df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data","Chiav", "Avversari", "W/L"])
+    df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data", "Luogo","Chiav", "Avversari", "W/L"])
     L_append = []
     for path in list_path:
         data_temp = pd.read_csv(path).rename(columns={"Nº":"Nr"})
@@ -11,6 +11,8 @@ def import_data(list_path):
 
         avv_tot = data_temp.loc[data_temp.Nr == "Avversari"][["PTS"]].values[0][0]
         chiav_tot = data_temp.loc[data_temp.Nr == 9999 ][["PTS"]].values[0][0]
+        casa = data_temp.loc[data_temp.Nr == "Avversari"][["MIN"]].values[0][0]
+
         if chiav_tot > avv_tot:
             res = "W"
         else:
@@ -39,7 +41,7 @@ def import_data(list_path):
         data_temp["sec"] = data_temp.sec_ + 60*(data_temp.min_)
 
         L_append = L_append + [data_temp]
-        df_results.loc[len(df_results)] = [season, my_team, other_team, pd.to_datetime(date), chiav_tot, avv_tot, res ]
+        df_results.loc[len(df_results)] = [season, my_team, other_team, pd.to_datetime(date), casa, chiav_tot, avv_tot, res ]
         df_results = df_results.sort_values(by='Data')
     df_results.Data = df_results.Data.apply( lambda x: pd.to_datetime( x ).strftime('%d-%m-%Y') )
 
