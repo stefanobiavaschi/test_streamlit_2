@@ -70,7 +70,12 @@ def main():
 
         data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', '3PM', '3PA', '2PM', '2PA',
             'FTM', 'FTA', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
-        st.write(data_mean)
+
+        data_mean_players = data_mean.loc[data_mean.Giocatore != "Totale"]
+        data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
+
+        st.write(data_mean_players)
+        st.write(data_mean_team)
 
     if scelta_media == "Dati al minuto":
         st.markdown(
