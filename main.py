@@ -70,7 +70,7 @@ def main():
     if scelta_media == "Dati al minuto":
         st.markdown(
             """
-            ... Lavori in corso pt.2 .... 
+            ... Lavori in corso pt.2 ....  =)
             """
         )
     
