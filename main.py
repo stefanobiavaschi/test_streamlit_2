@@ -30,7 +30,7 @@ def main():
     )
 
     image = Image.open('file/logo.jpg')
-    st.image(image, caption='Sunrise by the mountains')
+    st.image(image, width= 5)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
