@@ -84,7 +84,7 @@ def main():
         st.write(data_mean_players)
         st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
-        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data","Chiav", "Avversari", "W/L"]].reset_index(drop=True).sort_values(by=['Data'])
+        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
         st.write(res_vis)
 
