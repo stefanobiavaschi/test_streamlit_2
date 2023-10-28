@@ -88,7 +88,7 @@ def main():
         st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
         list_player = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].Giocatore.values)))
-        scelta_player = st.radio("Giocatore:", list_other, horizontal=True)
+        scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="EFF")
 
     if scelta_media == "Dati al minuto":
