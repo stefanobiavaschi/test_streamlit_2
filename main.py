@@ -56,7 +56,7 @@ def main():
 
         data_single = data_single.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
         data_single_players = data_single.loc[data_single.Giocatore != "Totale"]
-        data_single_team = data_single.loc[data_single.Giocatore == "Totale"].reset_index().drop(columns=['Nr','MIN'])
+        data_single_team = data_single.loc[data_single.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
 
         st.write(data_single_players)
         st.write(data_single_team)
