@@ -39,7 +39,7 @@ def import_data(list_path):
         data_temp["sec"] = data_temp.sec_ + 60*(data_temp.min_)
 
         L_append = L_append + [data_temp]
-        df_results.loc[len(df_results)] = [season, my_team, other_team, date, chiav_tot, avv_tot  ]
+        df_results.loc[len(df_results)] = [season, my_team, other_team, date, chiav_tot, avv_tot, res ]
 
     data = pd.concat(L_append)
     return data, df_results
