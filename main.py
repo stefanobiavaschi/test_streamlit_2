@@ -30,7 +30,7 @@ def main():
     # displayPDF('file/logo.pdf')
 
 
-    data = import_data(list_path)
+    data, df_results = import_data(list_path)
 
     list_season = list(set(list(data.season.values)))
     scelta_season = st.radio("Stagione:", list_season, horizontal=True)

@@ -3,10 +3,21 @@ import base64
 import streamlit as st
 
 def import_data(list_path):
+    df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data","Chiav", "Avversari", "W/L"])
     L_append = []
     for path in list_path:
         data_temp = pd.read_csv(path).rename(columns={"Nº":"Nr"})
         data_temp.fillna(9999, inplace=True)
+
+        avv_tot = data_temp.loc[data_temp.Nr == "Avversari"][["PTS"]].values[0][0]
+        chiav_tot = data_temp.loc[data_temp.Nr == 9999 ][["PTS"]].values[0][0]
+        if chiav_tot > avv_tot:
+            res = "W"
+        else:
+            res = "L"
+
+        data_temp = data_temp.loc[data_temp.Nr != "Avversari"]
+
         data_temp.Nr = data_temp.Nr.astype(int)
         data_temp.replace(9999, "", inplace=True)
         game = path.split("/")[-1][6:-4]
@@ -28,9 +39,10 @@ def import_data(list_path):
         data_temp["sec"] = data_temp.sec_ + 60*(data_temp.min_)
 
         L_append = L_append + [data_temp]
+        df_results.loc[len(df_results)] = [season, my_team, other_team, date, chiav_tot, avv_tot  ]
 
     data = pd.concat(L_append)
-    return data
+    return data, df_results
 
 def sec_to_time(sec):
     min = int( sec // 60 )
