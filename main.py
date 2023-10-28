@@ -59,7 +59,7 @@ def main():
         data_single_team = data_single.loc[data_single.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
 
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team) & (df_results.Squadra == scelta_other) &\
-             (df_results.Data == scelta_date) ][["Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+             (df_results.Data == scelta_date) ][["Data","Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
         st.write(res_vis)
         st.markdown("### Statistiche giocatori:")
