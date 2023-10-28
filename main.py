@@ -55,7 +55,11 @@ def main():
         data_single = data.loc[(data.other_team == scelta_other) & (data.date == scelta_date)]
 
         data_single = data_single.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
-        st.write(data_single)
+        data_single_players = data_single.loc[data_single.Giocatore != "Totale"]
+        data_single_team = data_single.loc[data_single.Giocatore == "Totale"]
+
+        st.write(data_single_players)
+        st.write(data_single_team)
 
     if scelta_media == "Dati medi":
         mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
