@@ -78,6 +78,7 @@ def main():
 
         st.write(data_mean_players)
         st.write(data_mean_team)
+        st.write(df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Chiav", "Avversari", "W/L"]])
 
     if scelta_media == "Dati al minuto":
         st.markdown(
