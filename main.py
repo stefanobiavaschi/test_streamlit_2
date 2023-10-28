@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os, urllib
+from PIL import Image
 
 from lib.func_data import import_data, sec_to_time, displayPDF
 
@@ -16,6 +17,8 @@ list_path =[
 ]
 
 
+
+
 def main():
     st.set_page_config(layout="wide")
 
@@ -25,6 +28,10 @@ def main():
         ... Lavori in corso .... 
         """
     )
+
+    image = Image.open('file/logo.jpg')
+    st.image(image, caption='Sunrise by the mountains')
+
     st.markdown("<br>", unsafe_allow_html=True)
 
     # displayPDF('file/logo.pdf')
