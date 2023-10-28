@@ -60,8 +60,9 @@ def main():
 
         st.write(data_single_players)
         st.write(data_single_team)
-        st.write(df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team) & \
-            (df_results.Squadra == scelta_other) & (df_results.Data == scelta_date) ][["Chiav", "Avversari", "W/L"]])
+        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team) & (df_results.Squadra == scelta_other) &\
+             (df_results.Data == scelta_date) ][["Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+        st.write(res_vis)
 
     if scelta_media == "Dati medi":
         mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
@@ -78,7 +79,8 @@ def main():
 
         st.write(data_mean_players)
         st.write(data_mean_team)
-        st.write(df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Chiav", "Avversari", "W/L"]])
+        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+        st.write(res_vis)
 
     if scelta_media == "Dati al minuto":
         st.markdown(
