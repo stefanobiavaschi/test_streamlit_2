@@ -79,7 +79,7 @@ def main():
 
         st.write(data_mean_players)
         st.write(data_mean_team)
-        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.write(res_vis)
 
     if scelta_media == "Dati al minuto":
