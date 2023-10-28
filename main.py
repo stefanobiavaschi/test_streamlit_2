@@ -58,10 +58,13 @@ def main():
         data_single_players = data_single.loc[data_single.Giocatore != "Totale"]
         data_single_team = data_single.loc[data_single.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
 
+        st.markdown("### Statistiche giocatori:")
         st.write(data_single_players)
+        st.markdown("### Statistiche squadra:")
         st.write(data_single_team)
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team) & (df_results.Squadra == scelta_other) &\
              (df_results.Data == scelta_date) ][["Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+        st.markdown("### Risultati:")
         st.write(res_vis)
 
     if scelta_media == "Dati medi":
@@ -77,9 +80,12 @@ def main():
         data_mean_players = data_mean.loc[data_mean.Giocatore != "Totale"]
         data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
 
+        st.markdown("### Statistiche giocatori:")
         st.write(data_mean_players)
+        st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+        st.markdown("### Risultati:")
         st.write(res_vis)
 
     if scelta_media == "Dati al minuto":
