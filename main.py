@@ -63,7 +63,7 @@ def main():
         st.markdown("### Statistiche squadra:")
         st.write(data_single_team)
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team) & (df_results.Squadra == scelta_other) &\
-             (df_results.Data == scelta_date) ][["Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+             (df_results.Data == scelta_date) ][["Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
         st.write(res_vis)
 
@@ -84,7 +84,7 @@ def main():
         st.write(data_mean_players)
         st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
-        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+        res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
         st.write(res_vis)
 
