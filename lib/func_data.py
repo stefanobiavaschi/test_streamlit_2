@@ -41,7 +41,7 @@ def import_data(list_path):
         L_append = L_append + [data_temp]
         df_results.loc[len(df_results)] = [season, my_team, other_team, pd.to_datetime(date), chiav_tot, avv_tot, res ]
         df_results = df_results.sort_values(by='Data')
-        df_results.Data = df_results.Data.apply( lambda x: pd.to_datetime( x ).strftime('%d-%m-%Y') )
+    df_results.Data = df_results.Data.apply( lambda x: pd.to_datetime( x ).strftime('%d-%m-%Y') )
 
     data = pd.concat(L_append)
     return data, df_results
