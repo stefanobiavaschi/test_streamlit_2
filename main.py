@@ -79,19 +79,16 @@ def main():
         st.write(data_mean_players)
         st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
+        st.markdown("Efficienza rispetto ai minuti impiegati:")
+        st.line_chart(chart_data, x="MIN", y="EFF")
         list_player = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].Giocatore.values)))
         scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
         st.markdown("Storico Efficienza:")
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="EFF")
         st.markdown("Storico Punti:")
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="PTS")
-        st.markdown("Efficienza rispetto ai minuti impiegati:")
-        st.scatter_chart(
-            chart_data,
-            x='MIN',
-            y='EFF',
-            color='Giocatore',
-        )
+
+
 
     if scelta_media == "Dati al minuto":
         st.markdown(
