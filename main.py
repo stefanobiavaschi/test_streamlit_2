@@ -35,9 +35,6 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # displayPDF('file/logo.pdf')
-
-
     data, df_results = import_data(list_path)
 
     list_season = list(set(list(data.season.values)))
@@ -76,8 +73,8 @@ def main():
         st.write(data_single_team)
 
     if scelta_media == "Dati medi":
-        mrg_1 = data.groupby(["Nr", "Giocatore"]).mean().reset_index()
-        mrg_2 = data.groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
+        mrg_1 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).mean().reset_index()
+        mrg_2 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
         data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
         data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
