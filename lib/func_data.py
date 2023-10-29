@@ -2,7 +2,8 @@ import pandas as pd
 import base64
 import streamlit as st
 
-def import_data(list_path):
+def import_data():
+    list_path = os.listdir('data')
     df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data", "Luogo", "Chiav", "Avversari", "W/L"])
     L_append = []
     for path in list_path:
