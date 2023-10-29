@@ -87,10 +87,7 @@ def main():
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="PTS")
         st.markdown("Efficienza rispetto ai minuti impiegati:")
         st.scatter_chart(
-            chart_data,
-            x='MIN',
-            y='EFF',
-            color='Giocatore',
+            chart_data
         )
 
     if scelta_media == "Dati al minuto":
