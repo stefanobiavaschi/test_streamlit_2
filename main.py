@@ -80,7 +80,7 @@ def main():
         st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
         st.markdown("Efficienza rispetto ai minuti impiegati:")
-        st.line_chart(chart_data, x="MIN", y="EFF")
+        st.scatter_chart(chart_data, x="MIN", y="EFF")
         list_player = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].Giocatore.values)))
         scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
         st.markdown("Storico Efficienza:")
