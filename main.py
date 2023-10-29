@@ -58,7 +58,7 @@ def main():
         st.write(data_single_team)
 
     if scelta_media == "Dati medi":
-        mrg_1 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).mean().reset_index()
+        mrg_1 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).mean().reset_index().round(1)
         mrg_2 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
         data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
