@@ -58,3 +58,7 @@ def sec_to_time(sec):
     if sec_new<10:
         sec_new = "0" + str(sec_new)    
     return f"{min}:{sec_new}"
+
+def avg_perc(m, a):
+    r = round( (m/a)*100 , 1 )
+    return str(r) + "%"

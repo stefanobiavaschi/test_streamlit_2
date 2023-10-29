@@ -3,7 +3,7 @@ import pandas as pd
 import os, urllib
 from PIL import Image
 
-from lib.func_data import import_data, sec_to_time
+from lib.func_data import import_data, sec_to_time, avg_perc
 
 def main():
     st.set_page_config(layout="wide")
@@ -64,8 +64,13 @@ def main():
         data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
         data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
 
-        data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', '3PM', '3PA', '2PM', '2PA',
-            'FTM', 'FTA', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
+        data_mean['FG%'] = data_mean.apply(lambda row: avg_perc(row['FGM'], row['FGA']), axis=1)
+        data_mean['3P%'] = data_mean.apply(lambda row: avg_perc(row['3PM'], row['3PA']), axis=1)
+        data_mean['2P%'] = data_mean.apply(lambda row: avg_perc(row['2PM'], row['2PA']), axis=1)
+        data_mean['FT%'] = data_mean.apply(lambda row: avg_perc(row['FTM'], row['FTA']), axis=1)
+        
+        data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA',
+            '2P%', 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
 
         data_mean_players = data_mean.loc[data_mean.Giocatore != "Totale"]
         data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
