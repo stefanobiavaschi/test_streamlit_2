@@ -4,6 +4,7 @@ import streamlit as st
 
 def import_data():
     list_path = os.listdir('data')
+    list_path = [ "data//" + path for path in list_path ]
     df_results = pd.DataFrame(columns=["Season", "my_team", "Squadra" ,"Data", "Luogo", "Chiav", "Avversari", "W/L"])
     L_append = []
     for path in list_path:
