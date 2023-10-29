@@ -1,6 +1,7 @@
 import pandas as pd
 import base64
 import streamlit as st
+import os
 
 def import_data():
     list_path = os.listdir('data')
