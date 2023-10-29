@@ -3,7 +3,7 @@ import pandas as pd
 import os, urllib
 from PIL import Image
 
-from lib.func_data import import_data, sec_to_time, displayPDF
+from lib.func_data import import_data, sec_to_time
 
 def main():
     st.set_page_config(layout="wide")
