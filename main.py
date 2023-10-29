@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import os, urllib
 from PIL import Image
 
 from lib.func_data import import_data, sec_to_time, avg_perc
@@ -9,11 +8,6 @@ def main():
     st.set_page_config(layout="wide")
 
     st.markdown("# Basket Chiavenna - Statistiche")
-    st.markdown(
-        """
-        ... Lavori in corso .... 
-        """
-    )
 
     image = Image.open('file/logo.jpg')
     st.image(image, width= 150)
