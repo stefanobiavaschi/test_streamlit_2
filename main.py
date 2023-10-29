@@ -64,6 +64,7 @@ def main():
         data_mean['FT%'] = data_mean.apply(lambda row: avg_perc(row['FTM'], row['FTA']), axis=1)
         chart_data = data_mean[[ 'Giocatore', 'sec', 'EFF' ]]
         chart_data['MIN'] = chart_data.sec // 60
+        chart_data = chart_data.drop(columns=["sec"])
         
         data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA',
             '2P%', 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
