@@ -62,6 +62,8 @@ def main():
         data_mean['3P%'] = data_mean.apply(lambda row: avg_perc(row['3PM'], row['3PA']), axis=1)
         data_mean['2P%'] = data_mean.apply(lambda row: avg_perc(row['2PM'], row['2PA']), axis=1)
         data_mean['FT%'] = data_mean.apply(lambda row: avg_perc(row['FTM'], row['FTA']), axis=1)
+        chart_data = data_mean[[ 'Giocatore', 'sec', 'EFF' ]]
+        chart_data['MIN'] = chart_data.sec // 60
         
         data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA',
             '2P%', 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
@@ -78,10 +80,18 @@ def main():
         st.write(data_mean_team)
         list_player = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].Giocatore.values)))
         scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
-        st.markdown("Efficienza rispetto al tempo:")
+        st.markdown("Storico Efficienza:")
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="EFF")
-        st.markdown("Punti rispetto al tempo:")
+        st.markdown("Storico Punti:")
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="PTS")
+
+        st.markdown("Efficienza rispetto ai minuti impiegati:")
+        st.scatter_chart(
+            chart_data,
+            x='MIN',
+            y='EFF',
+            color='Giocatore',
+        )
 
     if scelta_media == "Dati al minuto":
         st.markdown(
