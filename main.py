@@ -84,7 +84,6 @@ def main():
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="EFF")
         st.markdown("Storico Punti:")
         st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="PTS")
-
         st.markdown("Efficienza rispetto ai minuti impiegati:")
         st.scatter_chart(
             chart_data,
