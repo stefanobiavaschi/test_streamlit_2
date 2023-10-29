@@ -52,5 +52,9 @@ def import_data():
 
 def sec_to_time(sec):
     min = int( sec // 60 )
+    if min<10:
+        min = "0" + str(min)
     sec_new = int( sec - (min*60) )
+    if sec_new<10:
+        sec_new = "0" + str(sec_new)    
     return f"{min}:{sec_new}"
