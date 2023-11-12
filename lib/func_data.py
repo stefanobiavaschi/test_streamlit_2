@@ -46,7 +46,7 @@ def import_data():
         df_results.loc[len(df_results)] = [season, my_team, other_team, pd.to_datetime(date), casa, chiav_tot, avv_tot, res ]
         df_results = df_results.sort_values(by='Data')
     df_results.Data = pd.to_datetime(df_results.Data)
-    df_results = df_results.sort_values(by=['Data'])
+    df_results = df_results.sort_values(by=['Data']).reset_index(drop=True)
     df_results.Data = df_results.Data.apply( lambda x: pd.to_datetime( x ).strftime('%d-%m-%Y') )
 
     data = pd.concat(L_append)
