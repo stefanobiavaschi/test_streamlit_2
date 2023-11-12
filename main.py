@@ -72,7 +72,6 @@ def main():
         data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
 
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
-        res_vis = res_vis.sort_values(by='Data')
         st.markdown("### Risultati:")
         st.write(res_vis)
         st.markdown("### Statistiche giocatori:")
