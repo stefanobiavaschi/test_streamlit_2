@@ -51,10 +51,10 @@ def main():
         st.write(data_single_team)
 
     if scelta_media == "Dati medi":
-        mrg_1 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).mean().reset_index().round(1)
+        mrg_1 = data.loc[data.season == scelta_season].drop(columns=["Nr"]).groupby(["Giocatore"]).mean().reset_index().round(1)
         mrg_2 = data.loc[data.season == scelta_season].groupby(["Nr", "Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
-        data_mean = mrg_1.merge(mrg_2, on=["Nr", "Giocatore"])
+        data_mean = mrg_1.merge(mrg_2, on=["Giocatore"])
         data_mean["MIN"] = data_mean.sec.apply(lambda x: sec_to_time(x) )
 
         data_mean['FG%'] = data_mean.apply(lambda row: avg_perc(row['FGM'], row['FGA']), axis=1)
@@ -65,7 +65,7 @@ def main():
         chart_data['MIN'] = chart_data.sec // 60
         chart_data = chart_data.drop(columns=["sec"])
         
-        data_mean = data_mean[['Nr', 'Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA',
+        data_mean = data_mean[['Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA',
             '2P%', 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
 
         data_mean_players = data_mean.loc[data_mean.Giocatore != "Totale"]
