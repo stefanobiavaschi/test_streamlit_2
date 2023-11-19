@@ -69,7 +69,7 @@ def main():
             '2P%', 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
 
         data_mean_players = data_mean.loc[data_mean.Giocatore != "Totale"]
-        data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['MIN'])
+        data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True)#.drop(columns=['MIN'])
 
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
