@@ -50,7 +50,7 @@ def main():
         st.markdown("### Statistiche squadra:")
         st.write(data_single_team)
 
-    if scelta_media == "Dati medi":
+    if scelta_media == "Dati aggregati":
         mrg_1 = data.loc[data.season == scelta_season].drop(columns=["Nr"]).groupby(["Giocatore"]).mean().reset_index().round(1)
         mrg_2 = data.loc[data.season == scelta_season].drop(columns=["Nr"]).groupby(["Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 
