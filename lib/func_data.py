@@ -30,7 +30,7 @@ def import_data():
         season = split_[0][-5:]
         my_team = split_[0][:-6]
         other_team = split_[2]
-        date = pd.to_datetime( split_[3] + "-" + split_[4] + "-" + split_[5] )
+        date = pd.to_datetime( split_[5] + "-" + split_[4] + "-" + split_[3] )
 
         data_temp["season"] = season
         data_temp["my_team"] = my_team
