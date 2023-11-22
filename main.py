@@ -84,9 +84,9 @@ def main():
         scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
         list_feat = ['MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA','2P%', 'FTM', 
                      'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]
-        scelta_feat = st.radio("Voce statistiche:", list_player, horizontal=True)
-        st.markdown(f"Storico per {scelta_feat}:")
-        st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y="EFF")
+        scelta_feat = st.radio("Voce statistiche:", list_feat, horizontal=True)
+        st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
+        st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y=scelta_feat)
 
 
 
