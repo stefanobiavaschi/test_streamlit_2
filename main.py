@@ -24,7 +24,7 @@ def main():
 
     data = data.loc[ (data.my_team == scelta_team) & (data.season == scelta_season ) ]
 
-    scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati medi", "Dati al minuto" ], horizontal=True)
+    scelta_media = st.radio("Visualizza:", [ "Partita singola", "Dati aggregati"], horizontal=True)
 
 
     if scelta_media == "Partita singola":
