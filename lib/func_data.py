@@ -50,7 +50,7 @@ def import_data():
     df_results.Data = df_results.Data.apply( lambda x: pd.to_datetime( x ).strftime('%d-%m-%Y') )
 
     data = pd.concat(L_append)
-    data = data.sort_values(by='date')
+    data = data.sort_values(by=["season", "my_team","date","Nr" ])
     return data, df_results
 
 def sec_to_time(sec):
