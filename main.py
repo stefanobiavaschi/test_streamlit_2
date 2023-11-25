@@ -95,17 +95,17 @@ def main():
         list_player = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].Giocatore.values)))
         list_player.insert(0, list_player.pop(list_player.index("Totale")))
         st.markdown("### Storico per voce statistica:")
-        scelta_player = st.multiselect("Giocatore:", list_player)
-        list_feat = ['PTS',  'EFF', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF',
-                     'PIR' 'FGM', 'FGA',  '3PM', '3PA', '2PM', '2PA','FTM', 'FTA' ] # 'FG%','3P%', '2P%', , 'FT%' 'MIN',
+        scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
+        list_feat = ['PTS', 'MIN', 'EFF', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF',
+                     'PIR' 'FGM', 'FGA',  '3PM', '3PA', '2PM', '2PA','FTM', 'FTA' ] # 'FG%','3P%', '2P%', , 'FT%'
         scelta_feat = st.radio("Voci statistiche:", list_feat, horizontal=True)
-        data_plot = data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore.isin(scelta_player))]
+        st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
+        data_plot = data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)]
         data_plot.date = pd.to_datetime(data_plot.date, format='%d-%m-%Y')
         data_plot = data_plot.sort_values(by=["date"])
-        # if scelta_player != "Totale":
-        #     data_plot['MIN'] = data_plot['MIN'].str.slice(0, 2).astype(int)
+        if scelta_player != "Totale":
+            data_plot['MIN'] = data_plot['MIN'].str.slice(0, 2).astype(int)
         st.line_chart(data_plot, x="date", y=scelta_feat)
-        st.markdown(str(scelta_player))
     
 
 if __name__ == "__main__":
