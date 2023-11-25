@@ -76,10 +76,12 @@ def main():
         st.write(res_vis)
         if (scelta_team == 'chiav_dr3') & (scelta_season == '23_24'):
             st.markdown(f""" Partite mancanti: \n
-                    - 13/10/23: Besanese 66 - 52 Chiavenna (L)""")
+                    - 13/10/23: Besanese 66 - 52 Chiavenna (L)\n Biavaschi S. 20, Donà M. 10, Geronimi F 7, Nava S. 4, Maraffio L. 4, Scaramellini N. 3, Biavaschi A. 2, Lucantoni A, Martinucci S, Geronimi G, Allievi S """)
+        # 
         if (scelta_team == 'chiav_u15') & (scelta_season == '23_24'):
             st.markdown(""" Partite mancanti: \n
-                        - 16/11/23: Delebio 70 - 53 Chiavenna (L) """)
+                        - 16/11/23: Delebio 70 - 53 Chiavenna (L)\n Gainera L. 22, Cuneo B. 5, Del Giorgio D. 2, Barbaro A. 2, Cipriani P. 5, Sceffer M. 2, Martinucci M, Morelli E, Ravo A. 6, Morelli M. 3, Del Barba D. 6 """)
+        # 
         st.markdown("### Statistiche giocatori:")
         st.write(data_mean_players)
         st.markdown("### Statistiche squadra:")
@@ -92,17 +94,7 @@ def main():
         scelta_feat = st.radio("Voci statistiche:", list_feat, horizontal=True)
         st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
         st.line_chart(data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)], x="date", y=scelta_feat)
-
-
-
-    if scelta_media == "Dati al minuto":
-        st.markdown(
-            """
-            ... Lavori in corso pt.2 ....  =)
-            """
-        )
     
-
 
 if __name__ == "__main__":
     main()
