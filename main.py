@@ -74,13 +74,13 @@ def main():
         res_vis = df_results.loc[(df_results.Season == scelta_season) & (df_results.my_team == scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
         st.write(res_vis)
-        #if ("scelta_team" == 'chiav_dr3') & (scelta_season == '23_24'):
-        st.markdown(f"""" Partite mancanti: \n
+        if ("scelta_team" == 'chiav_dr3') & (scelta_season == '23_24'):
+            st.markdown(f""" Partite mancanti: \n
                     - 13/10/23: Besanese 66 - 52 Chiavenna (L) \n
                     {scelta_season}  {scelta_team}""")
-        #if ("scelta_team" == 'chiav_u15') & (scelta_season == '23_24'):
-         #   st.markdown("""" Partite mancanti: \n
-          #              - 16/11/23: Delebio 70 - 53 Chiavenna (L) """)
+        if ("scelta_team" == 'chiav_u15') & (scelta_season == '23_24'):
+            st.markdown(""" Partite mancanti: \n
+                        - 16/11/23: Delebio 70 - 53 Chiavenna (L) """)
         st.markdown("### Statistiche giocatori:")
         st.write(data_mean_players)
         st.markdown("### Statistiche squadra:")
