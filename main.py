@@ -7,7 +7,7 @@ from lib.func_data import import_data, sec_to_time, avg_perc
 def main():
     st.set_page_config(
     page_title="Basket Chiavenna - Statistiche",
-    page_icon="test",
+    page_icon=":random:",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
