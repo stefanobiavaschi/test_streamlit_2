@@ -95,7 +95,8 @@ def main():
                      'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]
         scelta_feat = st.radio("Voci statistiche:", list_feat, horizontal=True)
         st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
-        st.line_chart(data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)], x="date", y=scelta_feat)
+        data_plot = data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)]
+        st.line_chart(data_plot, x="date", y=scelta_feat)
     
 
 if __name__ == "__main__":
