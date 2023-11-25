@@ -76,8 +76,7 @@ def main():
         st.write(res_vis)
         if (scelta_team == 'chiav_dr3') & (scelta_season == '23_24'):
             st.markdown(f""" Partite mancanti: \n
-                    - 13/10/23: Besanese 66 - 52 Chiavenna (L) \n
-                    {scelta_season}  {scelta_team}""")
+                    - 13/10/23: Besanese 66 - 52 Chiavenna (L)""")
         if (scelta_team == 'chiav_u15') & (scelta_season == '23_24'):
             st.markdown(""" Partite mancanti: \n
                         - 16/11/23: Delebio 70 - 53 Chiavenna (L) """)
