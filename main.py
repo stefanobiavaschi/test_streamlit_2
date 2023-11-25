@@ -45,6 +45,12 @@ def main():
              (df_results.Data == scelta_date) ][["Data","Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
         st.markdown("### Risultati:")
         st.write(res_vis)
+        if ("scelta_team" == 'chiav_dr3') & (scelta_season == '23_24'):
+            st.markdown("""" Partite mancanti: \n
+                        - 13/10/23: Besanese 66 - 52 Chiavenna (L) """)
+        if ("scelta_team" == 'chiav_u15') & (scelta_season == '23_24'):
+            st.markdown("""" Partite mancanti: \n
+                        - 16/11/23: Delebio 70 - 53 Chiavenna (L) """)
         st.markdown("### Statistiche giocatori:")
         st.write(data_single_players)
         st.markdown("### Statistiche squadra:")
@@ -85,7 +91,7 @@ def main():
                      'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]
         scelta_feat = st.radio("Voci statistiche:", list_feat, horizontal=True)
         st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
-        st.line_chart(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season) & (data.Giocatore == scelta_player)], x="date", y=scelta_feat)
+        st.line_chart(data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)], x="date", y=scelta_feat)
 
 
 
