@@ -78,12 +78,12 @@ def main():
             st.markdown(f""" Partite mancanti: \n
                     - 13/10/23: Besanese 66 - 52 Chiavenna (L)
         - Biavaschi S. 20, Donà M. 10, Geronimi F 7, Nava S. 4, Maraffio L. 4, Scaramellini N. 3, Biavaschi A. 2, Lucantoni A, Martinucci S, Geronimi G, Allievi S """)
-        # 
+        
         if (scelta_team == 'chiav_u15') & (scelta_season == '23_24'):
             st.markdown(""" Partite mancanti: \n
                         - 16/11/23: Delebio 70 - 53 Chiavenna (L)
-            - Gainera L. 22, Cuneo B. 5, Del Giorgio D. 2, Barbaro A. 2, Cipriani P. 5, Sceffer M. 2, Martinucci M, Morelli E, Ravo A. 6, Morelli M. 3, Del Barba D. 6 """)
-        
+            - Gianera L. 22, Cuneo B. 5, Del Giorgio D. 2, Barbaro A. 2, Cipriani P. 5, Sceffer M. 2, Martinucci M, Morelli E, Ravo A. 6, Morelli M. 3, Del Barba D. 6 """)
+    
         st.markdown("### Statistiche giocatori:")
         st.write(data_mean_players)
         st.markdown("### Statistiche squadra:")
