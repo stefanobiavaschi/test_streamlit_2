@@ -5,8 +5,17 @@ from PIL import Image
 from lib.func_data import import_data, sec_to_time, avg_perc
 
 def main():
-    st.set_page_config(layout="wide")
-
+    st.set_page_config(
+    page_title="Basket Chiavenna - Statistiche",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+    menu_items={
+        'Get Help': 'Bia',
+        'Report a bug': "Bia",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
     st.markdown("# Basket Chiavenna - Statistiche")
 
     image = Image.open('file/logo.jpg')
