@@ -105,7 +105,7 @@ def main():
         # if scelta_player != "Totale":
         #     data_plot['MIN'] = data_plot['MIN'].str.slice(0, 2).astype(int)
         st.line_chart(data_plot, x="date", y=scelta_feat)
-        st.markdown(scelta_feat)
+        st.markdown(str(scelta_player))
     
 
 if __name__ == "__main__":
