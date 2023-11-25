@@ -96,6 +96,8 @@ def main():
         scelta_feat = st.radio("Voci statistiche:", list_feat, horizontal=True)
         st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
         data_plot = data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)]
+        data_plot.date = pd.to_datetime(data_plot.date)
+        data_plot = data_plot.sort_values(by=["date"])
         st.line_chart(data_plot, x="date", y=scelta_feat)
     
 
