@@ -5,13 +5,6 @@ from PIL import Image
 from lib.func_data import import_data, sec_to_time, avg_perc
 
 def main():
-    [theme]
-    primaryColor="#F63366"
-    backgroundColor="#FFFFFF"
-    secondaryBackgroundColor="#F0F2F6"
-    textColor="#262730"
-    font="sans serif"
-    
     st.set_page_config(layout="wide")
 
     st.markdown("# Basket Chiavenna - Statistiche")
