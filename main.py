@@ -98,7 +98,8 @@ def main():
         data_plot = data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)]
         data_plot.date = pd.to_datetime(data_plot.date, format='%d-%m-%Y')
         data_plot = data_plot.sort_values(by=["date"])
-        data_plot['MIN'] = data_plot['MIN'].str.slice(0, 2).astype(int)
+        if scelta_player != "Totale":
+            data_plot['MIN'] = data_plot['MIN'].str.slice(0, 2).astype(int)
         st.line_chart(data_plot, x="date", y=scelta_feat)
     
 
