@@ -92,8 +92,8 @@ def main():
         list_player.insert(0, list_player.pop(list_player.index("Totale")))
         st.markdown("### Storico per voce statistica:")
         scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
-        list_feat = ['MIN', 'PTS', 'FGM', 'FGA',  '3PM', '3PA', '2PM', '2PA','FTM', 'FTA', 'OREB', 'DREB', 'REB',
-                    'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ] # 'FG%','3P%', '2P%', , 'FT%'
+        list_feat = ['PTS', 'MIN', 'EFF', , 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF',
+                     'PIR' 'FGM', 'FGA',  '3PM', '3PA', '2PM', '2PA','FTM', 'FTA' ] # 'FG%','3P%', '2P%', , 'FT%'
         scelta_feat = st.radio("Voci statistiche:", list_feat, horizontal=True)
         st.markdown(f"Storico per {scelta_feat} - {scelta_player}:")
         data_plot = data.loc[(data.season == scelta_season) & (data.my_team == scelta_team) &  (data.Giocatore == scelta_player)]
