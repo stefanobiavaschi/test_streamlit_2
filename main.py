@@ -89,6 +89,7 @@ def main():
         st.markdown("### Statistiche squadra:")
         st.write(data_mean_team)
         list_player = list(set(list(data.loc[(data.my_team == scelta_team) & (data.season == scelta_season)].Giocatore.values)))
+        list_player.insert(0, list_player.pop(list_player.index("Totale")))
         st.markdown("### Storico per voce statistica:")
         scelta_player = st.radio("Giocatore:", list_player, horizontal=True)
         list_feat = ['MIN', 'PTS', 'FGM', 'FGA',  '3PM', '3PA', '2PM', '2PA','FTM', 'FTA', 'OREB', 'DREB', 'REB',
