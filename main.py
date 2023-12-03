@@ -81,7 +81,9 @@ def main():
         if (scelta_team == 'chiav_dr3') & (scelta_season == '23_24'):
             st.markdown(f""" Partite mancanti: \n
                     - 13/10/23: Besanese 66 - 52 Chiavenna (L)
-        - Biavaschi S. 20, Donà M. 10, Geronimi F 7, Nava S. 4, Maraffio L. 4, Scaramellini N. 3, Biavaschi A. 2, Lucantoni A, Martinucci S, Geronimi G, Allievi S """)
+        - Biavaschi S. 20, Donà M. 10, Geronimi F. 7, Nava S. 4, Maraffio L. 4, Scaramellini N. 3, Biavaschi A. 2, Lucantoni A, Martinucci S, Geronimi G, Allievi S.
+                    - 13/10/23: Besanese 66 - 52 Chiavenna (L)
+        - Maraffio L. 15, Biavaschi S. 12, Donà M. 12, Farovini M. 8, Molteni M. 8, Geronimi G. 3, Geronimi F. 2, Ratti A. 2, Vavassori E. 1, Scaramellini N, Lucantoni A, Allievi S """)
         
         if (scelta_team == 'chiav_u15') & (scelta_season == '23_24'):
             st.markdown(""" Partite mancanti: \n
