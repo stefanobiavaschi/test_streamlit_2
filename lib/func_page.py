@@ -57,9 +57,9 @@ def singola():
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
-    col01, col02 = st.columns(2)
+    col01, col02 = st.columns([0.2, 0.8])
     col01.button("🔙Home", on_click=set_home)
-    col02.write(f"### Squadra selezionata: {st.session_state.scelta_team} - {st.session_state.scelta_season} ")
+    col02.write(f"### Squadra selezionata: :red[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
 
     col11, col12 = st.columns(2)
 
