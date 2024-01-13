@@ -4,23 +4,23 @@ from lib.func_data import import_data
 
 
 
-data, df_results = import_data()
-
-# Inizializzo session state
-list_season = list(set(list(data.season.values)))
-if 'scelta_season' not in st.session_state:
-    st.session_state['scelta_season'] = list_season[0]
-list_team = list(set(list(data.loc[data.season == st.session_state.scelta_season].my_team.values)))
-if 'scelta_team' not in st.session_state:
-    st.session_state['scelta_team'] = list_team[0]
-
-data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
-
 def set_singola():
     st.session_state.page = "singola"
 
 def home():
-    global data
+
+    data, df_results = import_data()
+
+    # Inizializzo session state
+    list_season = list(set(list(data.season.values)))
+    if 'scelta_season' not in st.session_state:
+        st.session_state['scelta_season'] = list_season[0]
+    list_team = list(set(list(data.loc[data.season == st.session_state.scelta_season].my_team.values)))
+    if 'scelta_team' not in st.session_state:
+        st.session_state['scelta_team'] = list_team[0]
+
+    data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
+
     col1, col2 = st.columns(2)
     st.session_state.scelta_season = col1.radio("Stagione:", list_season, horizontal=True)
 
@@ -41,6 +41,18 @@ def home():
 
 
 def singola():
+
+
+    # Inizializzo session state
+    list_season = list(set(list(data.season.values)))
+    if 'scelta_season' not in st.session_state:
+        st.session_state['scelta_season'] = list_season[0]
+    list_team = list(set(list(data.loc[data.season == st.session_state.scelta_season].my_team.values)))
+    if 'scelta_team' not in st.session_state:
+        st.session_state['scelta_team'] = list_team[0]
+
+    data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
+
     list_other = list(set(list(data.loc[(data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season)].other_team.values)))
     scelta_other = st.radio("Nemico:", list_other, horizontal=True)
 
