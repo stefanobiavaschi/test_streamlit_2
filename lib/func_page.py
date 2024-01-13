@@ -35,9 +35,9 @@ def home():
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
     col11, col12 = st.columns(2)
-    col12.markdown("### 👀 Visualizza: 👀")
-    col12.button("Statistiche partite", on_click=set_singola)
-    col12.button("Statistiche aggregate", on_click=set_aggregato)
+    col12.markdown("### Visualizza:")
+    col12.button("👀 Statistiche partite 👀", on_click=set_singola)
+    col12.button("👀 Statistiche aggregate 👀", on_click=set_aggregato)
 
 
     res_vis = df_results.loc[(df_results.Season == st.session_state.scelta_season) & (df_results.my_team == st.session_state.scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
@@ -60,9 +60,10 @@ def singola():
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
-    col01, col02 = st.columns([0.2, 0.8])
+    col01, col02, col03 = st.columns([0.1, 0.8, 0.1])
     col01.button("🔙 Home", on_click=set_home)
     col02.write(f"### Squadra selezionata: :red[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
+    col03.button("👀 Statistiche aggregate 👀", on_click=set_aggregato)
 
     col11, col12 = st.columns(2)
 
@@ -125,9 +126,10 @@ def aggregato():
     data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['MIN'])
 
 
-    col01, col02 = st.columns([0.2, 0.8])
+    col01, col02, col03 = st.columns([0.1, 0.8, 0.1])
     col01.button("🔙 Home", on_click=set_home)
     col02.write(f"### Squadra selezionata: :red[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
+    col03.button("👀 Statistiche partite 👀", on_click=set_singola)
     st.markdown("### Statistiche giocatori:")
     st.write(data_mean_players)
     st.markdown("### Statistiche squadra:")
