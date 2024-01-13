@@ -37,13 +37,14 @@ def main():
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
-    col2.button("Statistiche partite", on_click=partita_singola)
-    col2.button("Statistiche aggregate")
+    col11, col12 = st.columns(2)
+    col12.button("Statistiche partite", on_click=partita_singola)
+    col12.button("Statistiche aggregate")
 
 
     res_vis = df_results.loc[(df_results.Season == st.session_state.scelta_season) & (df_results.my_team == st.session_state.scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
-    col1.markdown("### Risultati:")
-    col1.write(res_vis)
+    col11.markdown("### Risultati:")
+    col11.write(res_vis)
     
 
 if __name__ == "__main__":
