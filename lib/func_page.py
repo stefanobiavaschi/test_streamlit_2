@@ -16,7 +16,30 @@ if 'scelta_team' not in st.session_state:
 
 data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
-def partita_singola():
+def set_singola():
+    st.session_state.page = "singola"
+
+def home():
+    col1, col2 = st.columns(2)
+    st.session_state.scelta_season = col1.radio("Stagione:", list_season, horizontal=True)
+
+    st.session_state.scelta_team = col2.radio("Squadra BK Chiavenna:", list_team, horizontal=True)
+
+    data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
+
+    col11, col12 = st.columns(2)
+    col12.button("Statistiche partite", on_click=set_singola)
+    col12.button("Statistiche aggregate")
+
+
+    res_vis = df_results.loc[(df_results.Season == st.session_state.scelta_season) & (df_results.my_team == st.session_state.scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
+    col11.markdown("### Risultati:")
+    col11.write(res_vis)
+
+
+
+
+def singola():
     list_other = list(set(list(data.loc[(data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season)].other_team.values)))
     scelta_other = st.radio("Nemico:", list_other, horizontal=True)
 
