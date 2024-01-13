@@ -24,7 +24,7 @@ def home():
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
-    col1, col2 = st.columns(2)
+    col1, col2, _ = st.columns(3)
     st.session_state.scelta_season = col1.radio("Stagione:", list_season, horizontal=True)
 
     st.session_state.scelta_team = col2.radio("Squadra BK Chiavenna:", list_team, horizontal=True)
