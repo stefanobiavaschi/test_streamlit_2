@@ -68,3 +68,53 @@ def avg_perc(m, a):
     else:
         r = 0.0
     return str(r) + "%"
+
+def set_bg_hack(main_bg, bg_ext):
+    ### Funzione per impostare lo sfondo
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: url(data:image/{bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()});
+            background-repeat: no-repeat;
+            background-position: right 0% bottom 100%;
+            background-size: cover;
+            background-attachment: scroll;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+from pathlib import Path
+import streamlit as st
+
+def img_to_bytes(img_path):
+      img_bytes = Path(img_path).read_bytes()
+      encoded = base64.b64encode(img_bytes).decode()
+      return encoded
+
+def header():
+    img_path=r'file/logo.png'
+    img_Blue=r'file/logo.png'
+    st.markdown(f"""<nav class="navbar fixed-top navbar-expand-lg " style="background-color: #003247;">
+    <div class="" style="margin-right: 15px;">
+    </div>
+    <img  class="float-right" src="data:image/png;base64,{img_to_bytes(img_Blue)}" class="img-fluid" style="max-height: 60px;">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div style="margin-top: 5px;">
+            <img  class="float-right" src="data:image/png;base64,{img_to_bytes(img_path)}" class="img-fluid" style="max-height: 45px;">
+        </li>
+      </ul>
+    </div>
+    </nav>""", unsafe_allow_html=True)  
+    
+
+    st.markdown("""
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    """, unsafe_allow_html=True)
