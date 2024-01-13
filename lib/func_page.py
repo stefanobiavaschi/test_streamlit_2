@@ -60,7 +60,7 @@ def singola():
 
     col01, col02, col03 = st.columns([0.1, 0.8, 0.1])
     col01.button("🔙 Home", on_click=set_home)
-    col02.write(f"### Squadra selezionata: :green[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
+    col02.write(f"### Squadra selezionata: :orange[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
     col03.button("👀 Statistiche aggregate 👀", on_click=set_aggregato)
 
     col11, col12 = st.columns(2)
@@ -125,7 +125,7 @@ def aggregato():
 
     col01, col02, col03 = st.columns([0.1, 0.8, 0.1])
     col01.button("🔙 Home", on_click=set_home)
-    col02.write(f"### Squadra selezionata: :green[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
+    col02.write(f"### Squadra selezionata: :orange[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
     col03.button("👀 Statistiche partite 👀", on_click=set_singola)
     st.markdown("### Statistiche giocatori:")
     st.write(data_mean_players)
