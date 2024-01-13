@@ -21,13 +21,12 @@ def main():
     st.markdown("<br>", unsafe_allow_html=True)
 
     data, df_results = import_data()
-    list_season = list(set(list(data.season.values)))
-    list_team = list(set(list(data.loc[data.season == st.session_state.scelta_season].my_team.values)))
-
 
     # Inizializzo session state
+    list_season = list(set(list(data.season.values)))
     if 'scelta_season' not in st.session_state:
         st.session_state['scelta_season'] = list_season[0]
+    list_team = list(set(list(data.loc[data.season == st.session_state.scelta_season].my_team.values)))
     if 'scelta_team' not in st.session_state:
         st.session_state['scelta_team'] = list_team[0]
 
