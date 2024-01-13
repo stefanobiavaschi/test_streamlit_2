@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd 
 from lib.func_data import import_data, sec_to_time, avg_perc
 
-
-
 def set_singola():
     st.session_state.page = "singola"
 
@@ -104,7 +102,6 @@ def aggregato():
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
-###########
     mrg_1 = data.loc[data.season == st.session_state.scelta_season].drop(columns=["Nr"]).groupby(["Giocatore"]).mean().reset_index().round(1)
     mrg_2 = data.loc[data.season == st.session_state.scelta_season].drop(columns=["Nr"]).groupby(["Giocatore"]).agg( {"MIN":"count"} ).reset_index().rename(columns={"MIN":"Nr_partite"})
 

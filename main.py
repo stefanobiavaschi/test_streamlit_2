@@ -9,7 +9,7 @@ from lib.func_page import singola, home, aggregato
 def main():
     st.set_page_config(
     page_title="Basket Chiavenna - Statistiche 📈",
-    page_icon="📈🏀",
+    page_icon="📈",
     layout="wide",
     initial_sidebar_state="collapsed"
     )
