@@ -41,7 +41,7 @@ def home():
 
 
 def singola():
-
+    data, df_results = import_data()
 
     # Inizializzo session state
     list_season = list(set(list(data.season.values)))
