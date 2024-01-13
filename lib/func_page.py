@@ -59,7 +59,6 @@ def singola():
 
     col11, col12 = st.columns(2)
     col12.button("🔙Home", on_click=set_home)
-    col12.button("Statistiche aggregate")
 
     list_other = list(set(list(data.loc[(data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season)].other_team.values)))
     scelta_other = col11.radio("Nemico:", list_other, horizontal=True)
