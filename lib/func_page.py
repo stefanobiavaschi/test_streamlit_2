@@ -125,7 +125,9 @@ def aggregato():
     data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['MIN'])
 
 
-    st.button("🔙 Home", on_click=set_home)
+    col01, col02 = st.columns([0.2, 0.8])
+    col01.button("🔙 Home", on_click=set_home)
+    col02.write(f"### Squadra selezionata: :red[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
     st.markdown("### Statistiche giocatori:")
     st.write(data_mean_players)
     st.markdown("### Statistiche squadra:")
