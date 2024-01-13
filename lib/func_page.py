@@ -11,7 +11,7 @@ def set_home():
     st.session_state.page = "home"
 
 def set_aggregato():
-    st.session_state.aggregato = "aggregato"
+    st.session_state.page = "aggregato"
 
 def home():
 
