@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd 
-from func_data import import_data
+from lib.func_data import import_data
 
 data, df_results = import_data()
 data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
