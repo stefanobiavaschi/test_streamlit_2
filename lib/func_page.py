@@ -37,7 +37,7 @@ def home():
     col11, col12 = st.columns(2)
     col12.markdown("### Visualizza:")
     col12.button("Statistiche partite", on_click=set_singola)
-    col12.button("Statistiche aggregate")
+    col12.button("Statistiche aggregate", on_click=set_aggregato)
 
 
     res_vis = df_results.loc[(df_results.Season == st.session_state.scelta_season) & (df_results.my_team == st.session_state.scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
