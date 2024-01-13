@@ -20,6 +20,7 @@ def set_singola():
     st.session_state.page = "singola"
 
 def home():
+    global data
     col1, col2 = st.columns(2)
     st.session_state.scelta_season = col1.radio("Stagione:", list_season, horizontal=True)
 
