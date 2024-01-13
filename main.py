@@ -3,7 +3,7 @@ import pandas as pd
 from PIL import Image
 
 from lib.func_data import import_data, sec_to_time, avg_perc
-from lib.func_page import singola, home
+from lib.func_page import singola, home, aggregato
 
 
 def main():
@@ -25,7 +25,7 @@ def main():
     pages = {
         "home": home,
         "singola": singola,
-        #"chat": chat,
+        "aggregato": aggregato,
     }
 
     # Inizializzazione della sessione
