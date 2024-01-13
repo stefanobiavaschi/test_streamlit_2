@@ -101,12 +101,12 @@ def header():
     st.markdown(f"""<nav class="navbar fixed-top navbar-expand-lg " style="background-color: #FF8800;">
     <div class="" style="margin-right: 15px;">
     </div>
-    <img  class="float-right" src="data:image/png;base64,{img_to_bytes(img_Blue)}" class="img-fluid" style="max-height: 60px;">
+    <img  class="float-right" src="data:image/png;base64,{img_to_bytes(img_Blue)}" class="img-fluid" style="max-height: 70px;">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <div style="margin-top: 5px;">
-            <img  class="float-right" src="data:image/png;base64,{img_to_bytes(img_path)}" class="img-fluid" style="max-height: 45px;">
+            <img  class="float-right" src="data:image/png;base64,{img_to_bytes(img_path)}" class="img-fluid" style="max-height: 70px;">
         </li>
       </ul>
     </div>
