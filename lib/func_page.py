@@ -7,6 +7,9 @@ from lib.func_data import import_data
 def set_singola():
     st.session_state.page = "singola"
 
+def set_home():
+    st.session_state.page = "home"
+
 def home():
 
     data, df_results = import_data()
@@ -53,12 +56,16 @@ def singola():
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
+    col11, col12 = st.columns(2)
+    col12.button("Home", on_click=set_home)
+    col12.button("Statistiche aggregate")
+
     list_other = list(set(list(data.loc[(data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season)].other_team.values)))
-    scelta_other = st.radio("Nemico:", list_other, horizontal=True)
+    scelta_other = col11.radio("Nemico:", list_other, horizontal=True)
 
     list_date = list(set(list(data.loc[(data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season) & \
                                     (data.other_team == scelta_other)].date.values)))
-    scelta_date = st.radio("Data:", list_date, horizontal=True)
+    scelta_date = col11.radio("Data:", list_date, horizontal=True)
 
     data_single = data.loc[(data.other_team == scelta_other) & (data.date == scelta_date)]
 
