@@ -32,6 +32,7 @@ def home():
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
     col11, col12 = st.columns(2)
+    col12.markdown("### Visualizza:")
     col12.button("Statistiche partite", on_click=set_singola)
     col12.button("Statistiche aggregate")
 
