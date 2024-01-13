@@ -13,57 +13,57 @@ def main():
         layout="wide"
     )
     
-    titleimg = r'file/background.jpg'
-    bg_ext = "jpg"
-    set_bg_hack(titleimg, bg_ext)
+    # titleimg = r'file/background.jpg'
+    # bg_ext = "jpg"
+    # set_bg_hack(titleimg, bg_ext)
 
-    st.markdown(
-        """
-        <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header{visibility: hidden;}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    st.markdown("""
-        <style>
-        /* Hide the link button */
-        .stApp a:first-child {
-            display: none;
-        }
+    # st.markdown(
+    #     """
+    #     <style>
+    #     #MainMenu {visibility: hidden;}
+    #     footer {visibility: hidden;}
+    #     header{visibility: hidden;}
+    #     </style>
+    #     """,
+    #     unsafe_allow_html=True
+    # )
+    # st.markdown("""
+    #     <style>
+    #     /* Hide the link button */
+    #     .stApp a:first-child {
+    #         display: none;
+    #     }
         
-        .css-15zrgzn {display: none}
-        .css-eczf16 {display: none}
-        .css-jn99sy {display: none}
-        </style>
-        """, unsafe_allow_html=True)
-    st.markdown(r"""
-        <style>
-            .st-emotion-cache-z5fcl4 {
-        width: 100%;
-        padding: 1rem 1rem 10rem;
-        min-width: auto;
-        max-width: initial;
-    }
-        </style>""",
-        unsafe_allow_html=True,
-    )
+    #     .css-15zrgzn {display: none}
+    #     .css-eczf16 {display: none}
+    #     .css-jn99sy {display: none}
+    #     </style>
+    #     """, unsafe_allow_html=True)
+    # st.markdown(r"""
+    #     <style>
+    #         .st-emotion-cache-z5fcl4 {
+    #     width: 100%;
+    #     padding: 1rem 1rem 10rem;
+    #     min-width: auto;
+    #     max-width: initial;
+    # }
+    #     </style>""",
+    #     unsafe_allow_html=True,
+    # )
 
-    st.markdown(
-        r"""
-        <style>
-        .stDeployButton {
-                visibility: hidden;
-            }
+    # st.markdown(
+    #     r"""
+    #     <style>
+    #     .stDeployButton {
+    #             visibility: hidden;
+    #         }
         
-        """, unsafe_allow_html=True
-    )
+    #     """, unsafe_allow_html=True
+    # )
 
-    st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
+    # st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
-    header()
+    # header()
         
 
 
