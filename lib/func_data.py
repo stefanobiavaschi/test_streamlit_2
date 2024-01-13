@@ -96,8 +96,8 @@ def img_to_bytes(img_path):
       return encoded
 
 def header():
-    img_path=r'file/logo.png'
-    img_Blue=r'file/logo.png'
+    img_path=r'file/logotest.pdf'
+    img_Blue=r'file/logotest.pdf'
     st.markdown(f"""<nav class="navbar fixed-top navbar-expand-lg " style="background-color: #000000;">
     <div class="" style="margin-right: 15px;">
     </div>
