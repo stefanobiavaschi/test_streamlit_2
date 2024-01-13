@@ -78,8 +78,9 @@ def singola():
 
     res_vis = df_results.loc[(df_results.Season == st.session_state.scelta_season) & (df_results.my_team == st.session_state.scelta_team) & (df_results.Squadra == scelta_other) &\
             (df_results.Data == scelta_date) ][["Data","Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
-    st.markdown("### Risultati:")
-    st.write(res_vis)
+    col12.markdown("### Risultati:")
+    col12.write(res_vis)
+
     st.markdown("### Statistiche giocatori:")
     st.write(data_single_players)
     st.markdown("### Statistiche squadra:")
