@@ -91,7 +91,7 @@ def singola():
 
 
 def aggregato():
-    data, df_results = import_data()
+    data, _ = import_data()
 
     # Inizializzo session state
     list_season = list(set(list(data.season.values)))
@@ -125,7 +125,7 @@ def aggregato():
     data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['MIN'])
 
 
-
+    st.button("🔙 Home", on_click=set_home)
     st.markdown("### Statistiche giocatori:")
     st.write(data_mean_players)
     st.markdown("### Statistiche squadra:")
