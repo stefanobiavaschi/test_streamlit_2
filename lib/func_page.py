@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd 
 from lib.func_data import import_data
 
+
+# Inizializzo session state
+if 'scelta_season' not in st.session_state:
+    st.session_state['scelta_season'] = list_season[0]
+if 'scelta_team' not in st.session_state:
+    st.session_state['scelta_team'] = list_team[0]
 data, df_results = import_data()
 data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
