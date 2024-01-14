@@ -26,20 +26,20 @@ def home():
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
     col1, col2, _ = st.columns(3)
-    st.session_state.scelta_season = col1.radio(":white[Stagione:]", list_season, horizontal=True)
+    st.session_state.scelta_season = col1.radio("Stagione:", list_season, horizontal=True)
 
-    st.session_state.scelta_team = col2.radio(":white[Squadra BK Chiavenna:]", list_team, horizontal=True)
+    st.session_state.scelta_team = col2.radio("Squadra BK Chiavenna:", list_team, horizontal=True)
 
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
     col11, col12 = st.columns(2)
-    col12.markdown(":white[### Visualizza:]")
-    col12.button("👀 :white[Statistiche partite] 👀", on_click=set_singola)
-    col12.button("👀 :white[Statistiche aggregate] 👀", on_click=set_aggregato)
+    col12.markdown("### Visualizza:")
+    col12.button("👀 Statistiche partite 👀", on_click=set_singola)
+    col12.button("👀 Statistiche aggregate 👀", on_click=set_aggregato)
 
 
     res_vis = df_results.loc[(df_results.Season == st.session_state.scelta_season) & (df_results.my_team == st.session_state.scelta_team)][["Squadra", "Data", "Luogo","Chiav", "Avversari", "W/L"]].reset_index(drop=True)
-    col11.markdown("### :white[Risultati:]")
+    col11.markdown("### Risultati:")
     col11.write(res_vis)
 
 
@@ -59,7 +59,7 @@ def singola():
     data = data.loc[ (data.my_team == st.session_state.scelta_team) & (data.season == st.session_state.scelta_season ) ]
 
     col01, col02, col03 = st.columns([0.1, 0.8, 0.1])
-    col01.button("🔙 :white[Home]", on_click=set_home)
+    col01.button("🔙 Home", on_click=set_home)
     col02.write(f"### Squadra selezionata: :orange[{st.session_state.scelta_team} - {st.session_state.scelta_season}] ")
     col03.button("👀 Statistiche aggregate 👀", on_click=set_aggregato)
 
