@@ -15,7 +15,7 @@ def main():
     
     titleimg = r'file/background.jpg'
     bg_ext = "jpg"
-    set_bg_hack(titleimg, bg_ext)
+    # set_bg_hack(titleimg, bg_ext)
 
     st.markdown(
         """
