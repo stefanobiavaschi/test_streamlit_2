@@ -12,7 +12,6 @@ def set_aggregato():
     st.session_state.page = "aggregato"
 
 def home():
-
     data, df_results = import_data()
 
     # Inizializzo session state
@@ -75,6 +74,7 @@ def singola():
     data_single = data.loc[(data.other_team == scelta_other) & (data.date == scelta_date)]
 
     data_single = data_single.drop(columns=["season","my_team", "other_team", "date", "PFD", "sec", "min_", "sec_"])
+    data_single["TS%"] = data_single.PTS / (2*(data_single.FGA + 0.44*data_single.FTA))
     data_single_players = data_single.loc[data_single.Giocatore != "Totale"]
     data_single_team = data_single.loc[data_single.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['Nr','MIN'])
 
@@ -118,6 +118,8 @@ def aggregato():
 
     data_mean = data_mean[['Giocatore', 'Nr_partite', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', '2PM', '2PA',
         '2P%', 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'SR', 'PF', 'PIR', 'EFF' ]]
+    data_mean["TS%"] = data_mean.PTS / (2*(data_mean.FGA + 0.44*data_mean.FTA))
+
 
     data_mean_players = data_mean.loc[data_mean.Giocatore != "Totale"]
     data_mean_team = data_mean.loc[data_mean.Giocatore == "Totale"].reset_index(drop=True).drop(columns=['MIN'])
